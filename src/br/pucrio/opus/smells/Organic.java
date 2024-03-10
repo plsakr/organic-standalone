@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import com.google.gson.ReflectionAccessFilter;
 import org.apache.commons.cli.ParseException;
 
 import com.google.gson.Gson;
@@ -91,7 +92,7 @@ public class Organic {
 	}
 
 	private List<Type> onlySmelly(List<Type> types) {
-		List<Type> smelly = new ArrayList<>();
+git 		List<Type> smelly = new ArrayList<>();
 		for (Type type : types) {
 			if (type.isSmelly()) {
 				type.removeAllNonSmellyMethods();
@@ -109,6 +110,7 @@ public class Organic {
 
 		GsonBuilder builder = new GsonBuilder();
 		builder.addSerializationExclusionStrategy(new ObservableExclusionStrategy());
+		builder.addReflectionAccessFilter(ReflectionAccessFilter.BLOCK_INACCESSIBLE_JAVA);
 		builder.disableHtmlEscaping();
 		builder.setPrettyPrinting();
 		builder.serializeNulls();
