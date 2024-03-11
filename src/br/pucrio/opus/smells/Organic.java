@@ -92,7 +92,7 @@ public class Organic {
 	}
 
 	private List<Type> onlySmelly(List<Type> types) {
-git 		List<Type> smelly = new ArrayList<>();
+		List<Type> smelly = new ArrayList<>();
 		for (Type type : types) {
 			if (type.isSmelly()) {
 				type.removeAllNonSmellyMethods();
